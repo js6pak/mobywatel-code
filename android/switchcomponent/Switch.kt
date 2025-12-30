@@ -18,4 +18,21 @@ fun Switch(
   when (data) {
     is SwitchData.SwitchOnly -> SwitchOnly(data = data)
     is SwitchData.SwitchWithText -> SwitchWithText(data = data)
-    is SwitchData.
+    is SwitchData.SwitchWithExtras -> SwitchWithExtras(data = data)
+  }
+}
+
+@Preview
+@Composable
+fun SwitchPreview(
+  @PreviewParameter(SwitchPreviewParameterProvider::class) data: SwitchData,
+) {
+  Box(
+    modifier = Modifier
+      .wrapContentHeight()
+      .background(color = AppTheme.colors.background)
+      .padding(horizontal = AppTheme.dimensions.spacing600),
+  ) {
+    Switch(data = data)
+  }
+}
